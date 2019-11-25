@@ -2,6 +2,12 @@
 :root {
   --brown_brown : #4e3629 ;
   --brown_red : #c00404 ;
+  --brown_yellow : #ffc72c ;
+}
+
+/* force body to 0 -- this may cause issues for your site! */
+body {
+	margin : 0px ; 
 }
 
 /* fonts from Brown */
@@ -59,20 +65,23 @@
 	transition : all 1s ease 0s ;
 	text-align : right ; 
 	border : 1px solid transparent ;
-	margin : 4.25ex 50px 0 0 ; 	
+	margin : 4ex 20% 0 0 ; 	
 }
 
 #bul_pl_header_links a {
 	font-family : CircularStd ;
 	font-weight : 400 ;  
-	font-size : .6rem ; 
+	font-size : .85rem ; 
 	display : inline-block ; 
 	color : #fff ; 
-	margin : 0 0 1ex 3em ; 
 	font-variant : small-caps ;
 	text-transform : uppercase ; 
 	letter-spacing : 1.1 ; 
 	line-height : 1.2 ; 
+}
+
+#bul_pl_header_links a.bul_pl_header_text {
+	margin-right : 20px ; 
 }
 
 #bul_pl_brand {
@@ -119,11 +128,12 @@
 	transition : all .25s ease 0s ;
 	cursor : pointer ;
 	margin-left : 2px ; 
+	margin-top : -1ex ;  /* this makes up for the extra headroom created by the rotation */
 	font-size : 1.7em ; 
 	font-weight : bold ; 
-	padding : 6px 6px 8px 7px ; 
-	background-color : #fff ; 
-	color : var(--brown_brown) ;
+	padding : 12px 12px 13px 13px ; 
+	background-color : transparent ; 
+	color : #fff ; 
 	-webkit-transform : rotate(-45deg) ; 
 	-moz-transform : rotate(-45deg) ;
 	-o-transform : rotate(-45deg) ;
@@ -133,11 +143,23 @@
 	-webkit-clip-path : circle(40% at 50% 50%) ;
 }
 
-#bul_pl_search_icon:hover {
+#bul_pl_hamburger_icon {
 	transition : all .25s ease 0s ;
+	cursor : pointer ;
+	margin-left : 15px ; 
+	font-size : 1.4em ; 
+	font-weight : bold ; 
+	padding : 14px 14px 15px 15px ; 
 	background-color : var(--brown_red) ; 
-	color : #fff ;
-	
+	color : #fff ; 
+	clip-path : circle(40% at 50% 50%) ;
+	-webkit-clip-path : circle(40% at 50% 50%) ;
+}
+
+#bul_pl_search_icon:hover, #bul_pl_hamburger_icon:hover {
+	transition : all .25s ease 0s ;
+	background-color : #fff ; 
+	color : var(--brown_red) ;
 }
 
 #bul_pl_search_button {
@@ -167,11 +189,15 @@ label[for="bul_pl_search_icon"]{
 	clip : rect(1px, 1px, 1px, 1px) ;
 }
 
-noscript#bul_pl_header_noscript_search a {
+a#bul_pl_noscript_search {
 	text-decoration : none ;
 }
 
-.modal {
+#bul_pl_universal_header nav div {
+	display : inline ; /* this is required because Firefox adds a div when noscript is used */
+}
+
+.bul_pl_header_modal {
     position : fixed ;
     left : 0 ;
     top : 0 ;
@@ -180,15 +206,16 @@ noscript#bul_pl_header_noscript_search a {
     transition: visibility 0s linear 0.5s, opacity 0.5s 0s, transform 0.5s;
     width : 100% ; 
 }
-.modal-content {
-    background-color : #fff ;
+.bul_pl_header_modal-content {
+    opacity : 1 ; 
     width : 100% ;
+    background-color : transparent ; 
 }
-.modal_text {
+.bul_pl_header_modal_text {
 	text-align : center ; 
 	padding-bottom : 10px ; 
 }
-.close-button {
+.bul_pl_header_close-button {
     width : 2rem ;
     font-size : 2rem ; 
     padding : 0px 2px 2px 2px ; 
@@ -200,10 +227,11 @@ noscript#bul_pl_header_noscript_search a {
     display : inline-block ; 
     text-align : right ;
 }
-.close-button:hover {
+.bul_pl_header_close-button:hover {
     background-color : #000 ;
 }
-.show-modal {
+.show-bul_pl_header_modal {
+	background-color : #fff ; 
     opacity : .98 ;
     visibility : visible ;
     transform : scale(1.0) ;
@@ -221,7 +249,7 @@ noscript#bul_pl_header_noscript_search a {
 	font-size : 1rem ; 
 	font-family : "CircularStd",sans-serif ;
 	font-weight : 700 ;
-	background : #f9fafa /* url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAxVJREFUSA21Vt9LVEEUPueutZnZL5eSWg3NfSpMWA0MIimMfuhLFNRbvfUX9Ef0HvRk9FRQ+WJZGNVakJAulBQ9aEq6hcRuaZuJoDt95+7O9d7du+PuYgOXmTnznfPNOXPOzGWqoE3tP3pkhVYvQrUbXyORqiPiFMYz+J5XUeBh87d3HzAuaFwgMQgmGqIHVUbdJEUXDLDsElM/W3wjMhv/4saWTDgZ7jijVOa+UmqH24BpzMwLzNbllsToM40riXAy3H4Wng0oUgGtKD0MfoS3I8SURB9C34kNHfZgiFfhaW9LYuypreNe9BtLGClDca9nPM2WdS2SGB3O15kIt3dhc3041ya9Jp6SRVEJr6WFxXo5MzcZlB/s3FXb6kcmNiKJsZisC07bFH377CEwhtTORrXyXisCPi3G9nyK/VmT+Y9+HOraNv8rPe72tIqr2owe5lLfsShhLIVMFAQneEcZA7FnJARG6sxukiDFwqgx+b3gRc8l716PEEWda5KNlTSvXqORkEntdjgk9StpHj1VZySE/VmHQ+qskubR45SZUNGkw4GidsblDLx6M2ZCYqck5AaZCHecKIfLvgRcNw/IhoyEgWDwNmpvRZOoTOaO1Jeem3rBZW+cNZRFgUdGwubpt18Bd24MKeKF+XTfeqSyLjh30eOK6Zcny0g4G+6sZqa9a3uECaUuyQ1SLLwil3XBaT3U4oI8VTIverUJ2ZJaHsArcEor5vd2UZf0Wlg9+onyJfwejW5dnKMB7PJkPkk5c9sz5iv6aRLdgpDmyB77kcHASwTlnjuRim4AZyZPkptMsB4Pc2RPQNZVYIjpRTUHexsSI0tTTccOrC4vX8eJtsFCC7ANivgn+hl8pf3TzLWerkmnkiCjgloTz7bw5h4hK9hImQI7pEL2O5kcLEL2qqaebM/KtO0LZ6kZpPEgwnM8HwHPYiA7vy8e/5u/VuncQoHe8iej4Y0mk01aSBC/f8zXtXWhDfVMR8RCln3Wk2zPb7aHQufqx4cWvfKNmVkc2HQVpKOokDR+NO/iJ+m/kcmW/wEUOkZkszywggAAAABJRU5ErkJggg==") no-repeat 15px 50% */ ;
+	background : #f9fafa ;
 }
 
 #searchForm_lookfor:hover {
