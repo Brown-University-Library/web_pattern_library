@@ -1,5 +1,6 @@
 document.addEventListener('click', function (bul_pl_accordion_event) {
     var bul_pl_accordion_content = document.querySelector(bul_pl_accordion_event.target.hash);
+    if (!bul_pl_accordion_content) return;
 	  
 	bul_pl_accordion_event.preventDefault();
 	
