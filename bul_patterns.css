@@ -5,11 +5,6 @@
   --brown_yellow : #ffc72c ;
 }
 
-/* force body to 0 -- this may cause issues for your site! */
-body {
-	margin : 0px ; 
-}
-
 /* fonts from Brown */
 
    @font-face {
@@ -17,101 +12,109 @@ body {
      src: url("https://library.brown.edu/common/fonts/CircularStd-Book.otf");
      font-weight: 400 ;
 }
-
    @font-face {
      font-family: CircularStd;
      src: url("https://library.brown.edu/common/fonts/CircularStd-Medium.otf");
      font-weight: 600 ;
 }
-
    @font-face {
      font-family: CircularStd;
      src: url("https://library.brown.edu/common/fonts/CircularStd-Bold.otf");
      font-weight: 800 ;
 }
-
    @font-face {
      font-family: MinionPro;
      src: url("https://library.brown.edu/common/fonts/MinionPro-Regular.otf");
      font-weight: 400 ;
 }
-
    @font-face {
      font-family: MinionPro;
      src: url("https://library.brown.edu/common/fonts/MinionPro-It.otf");
      font-style: italic ;
 }
-
    @font-face {
      font-family: MinionPro;
      src: url("https://library.brown.edu/common/fonts/MinionPro-Bold.otf");
      font-weight: 800 ;
 }
 
-/*--- ---*/
+/* force body margin to 0 -- this may cause issues for your site! */
+body {
+	font-family : MinionPro ;
+	font-weight : 400 ; 
+	margin : 0px ; 
+	opacity : 1 ;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family : CircularStd ;
+	font-weight : 600 ;
+}
 
+#bul_pl_header_container {
+	height : 110px ; 
+	background-color: var(--brown_brown) ;
+}
 #bul_pl_universal_header {
 	display : grid ; 
   	width : 100% ; 
-  	transition : all 1s ease 0s ;
   	background-color: var(--brown_brown) ;
+  	transition : all 1s ease 0s ;
   	grid-template-columns: 180px 200px auto ;
   	position : fixed ; 
   	height : 85px ;  
-  	padding : 12px 25px 12px 25px ; 
+  	padding : 12px 0px 12px 25px ; 
 }
-
 #bul_pl_header_links {
 	transition : all 1s ease 0s ;
 	text-align : right ; 
-	border : 1px solid transparent ;
-	margin : 4ex 20% 0 0 ; 	
+	border : 0px solid transparent ;
+	margin : 4.5ex 40px 0 0 ; 	
 }
-
 #bul_pl_header_links a {
 	font-family : CircularStd ;
 	font-weight : 400 ;  
-	font-size : .85rem ; 
+	font-size : .75rem ; 
 	display : inline-block ; 
 	color : #fff ; 
 	font-variant : small-caps ;
 	text-transform : uppercase ; 
-	letter-spacing : 1.1 ; 
+	letter-spacing : .1em ; 
 	line-height : 1.2 ; 
+	text-decoration : none ; 
 }
-
-#bul_pl_header_links a.bul_pl_header_text {
-	margin-right : 20px ; 
+#bul_pl_header_text a {
+	margin-left : 20px ; 
+	display : inline-block ; 
 }
-
 #bul_pl_brand {
 	transition : all 1s ease 0s ;
 	color : #fff ;
 }
-
-#bul_pl_brown_shield_svg {
+#bul_pl_brown_shield_header_svg {
 	transition : all 1s ease 0s ;
 	padding-right : 43px ; 
 	margin-top : 8px ; 
 	border-right : 1px solid grey ; 
 	height : 75px ; 
 }
-
+#bul_pl_brown_shield_menu_svg {
+	margin-top : 8px ; 
+	margin-left : 15px ; 
+	height : 44px ; 
+	float : left ; 
+}
 #bul_pl_logo_text {
 	transition : all 1s ease 0s ;
 	font-weight : 600 ; 
 	color : #fff ;
-	margin-left : 43px ; 
-	margin-top : 35px ; 
+	margin: 35px 0px 0px 43px ; 
 	letter-spacing : 0.1 ;
 	font : 1.2rem "CircularStd"; 
 }
-
 #bul_pl_logo_text a {
 	text-decoration : none ; 
 	color : #fff ; 
 }
-
 #bul_pl_words_university_library {
 	display : inline-block ; 
 	letter-spacing : 1.1 ;
@@ -119,11 +122,9 @@ body {
 	font-size : 10pt ; 
 	-webkit-font-smoothing : antialiased ;
 }
-
 #bul_pl_search {
 	width : 50% ; 
 }
-
 #bul_pl_search_icon {
 	transition : all .25s ease 0s ;
 	cursor : pointer ;
@@ -142,7 +143,6 @@ body {
 	clip-path : circle(40% at 50% 50%) ;
 	-webkit-clip-path : circle(40% at 50% 50%) ;
 }
-
 #bul_pl_hamburger_icon {
 	transition : all .25s ease 0s ;
 	cursor : pointer ;
@@ -155,13 +155,15 @@ body {
 	clip-path : circle(40% at 50% 50%) ;
 	-webkit-clip-path : circle(40% at 50% 50%) ;
 }
-
+#bul_pl_header_links_icon_separator {
+	margin-left : 10px ; 
+	border-right : 1px solid hsla(0,0%,100%,.3) ; 
+}
 #bul_pl_search_icon:hover, #bul_pl_hamburger_icon:hover {
 	transition : all .25s ease 0s ;
 	background-color : #fff ; 
 	color : var(--brown_red) ;
 }
-
 #bul_pl_search_button {
 	font-family : "CircularStd",sans-serif ;
 	font-weight : 400 ;
@@ -175,12 +177,10 @@ body {
 	border : 0px ; 
 	padding : 0px ; 
 }
-
 #bul_pl_search_button:hover, #bul_pl_search_button:focus {
 	background-color : #000 ; 
 }
-
-label[for="bul_pl_search_icon"]{
+label[for="bul_pl_search_icon"], #bul_pl_header_end, #bul_pl_skip_header {
 	position : absolute ;
 	height : 1px ; 
 	width : 1px ; 
@@ -188,23 +188,25 @@ label[for="bul_pl_search_icon"]{
 	clip : rect(1px 1px 1px 1px) ; /* IE6, IE7 */
 	clip : rect(1px, 1px, 1px, 1px) ;
 }
-
 a#bul_pl_noscript_search {
 	text-decoration : none ;
+	display : inline-block ;
+	margin-left : 20px ; 
 }
-
 #bul_pl_universal_header nav div {
 	display : inline ; /* this is required because Firefox adds a div when noscript is used */
 }
-
 .bul_pl_header_modal {
+	display : none ; 
+	visbility : hidden ; 
     position : fixed ;
     left : 0 ;
     top : 0 ;
     opacity : 0 ;
     visibility: hidden;
-    transition: visibility 0s linear 0.5s, opacity 0.5s 0s, transform 0.5s;
     width : 100% ; 
+    box-shadow : 1px 0px 1px 1px #eee ; 
+    background-color : #fff ; 
 }
 .bul_pl_header_modal-content {
     opacity : 1 ; 
@@ -215,46 +217,171 @@ a#bul_pl_noscript_search {
 	text-align : center ; 
 	padding-bottom : 10px ; 
 }
-.bul_pl_header_close-button {
+.bul_pl_header_modal_close-button {
     width : 2rem ;
     font-size : 2rem ; 
-    padding : 0px 2px 2px 2px ; 
+    padding : 0px 2px 0px 2px ; 
     margin : 20px 20px 0px 0px ; 
-    text-align : center !important ;
+    text-align : center ;
     cursor : pointer;
     background-color : var(--brown_red);
     color : #fff ; 
     display : inline-block ; 
-    text-align : right ;
 }
-.bul_pl_header_close-button:hover {
+.bul_pl_header_modal_close-button:hover {
     background-color : #000 ;
 }
-.show-bul_pl_header_modal {
+.bul_pl_header_modal_show {
 	background-color : #fff ; 
     opacity : .98 ;
     visibility : visible ;
     transform : scale(1.0) ;
-    transition : visibility 0s linear 0s, opacity 0.5s 0s, transform 0.5s ;
     width : 100% ; 
 }
-
-#searchForm_lookfor {
+.bul_pl_header_menu {
+	display : none ; 
+	visbility : hidden ; 
+    position : fixed ;
+    opacity : 0 ;
+	max-width: 405px;
+	min-width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width : 200px ; 
+    visibility: hidden;
+	width : 100% ; 
+    box-shadow : 1px 0px 1px 1px #eee ; 
+    background-color : #fff ; 
+}
+.bul_pl_header_menu-content {
+    opacity : 1 ; 
+    width : 100% ;
+    background-color : transparent ; 
+}
+#bul_pl_header_menu_text {
+	text-align : center ; 
+	padding-bottom : 10px ; 
+	clear : all ; 
+}
+#bul_pl_header_menu_text ul {
+	margin : 0px ;
+	padding : 5px 0px 0px 15px ;
+}
+#bul_pl_header_menu_text li {
+	border-bottom : 1px solid #eaeaea ; 
+}
+#bul_pl_header_menu_text ul li a {
+    font-family : "MinionPro" ;
+    font-weight : 800 ;
+    color : #000 ;
+    font-size : 1.5rem ;
+    transition : color .25s ;
+    padding : 23px 0 10px ;
+    vertical-align : top ;
+    letter-spacing : 0 ;
+    text-transform : capitalize ;
+    font-variant : normal ; 
+}
+#bul_pl_header_menu_text ul li a:hover {
+	color : var(--brown_red) ;
+}
+#bul_pl_header_menu_text ul {
+	list-style-type : none ;
+	margin-top : 59px ; 
+	text-align : left ; 
+}
+.bul_pl_header_menu_close-button {
+    width : 2rem ;
+    font-size : 2rem ; 
+    padding : 0px 4px 0px 4px ; 
+    margin : 10px 0px 0px 0px ; 
+    text-align : center ;
+    cursor : pointer;
+    background-color : var(--brown_red);
+    color : #fff ; 
+    display : block ; 
+    float : right ; 
+    font-weight : normal ;
+}
+.bul_pl_header_menu_close-button:hover {
+    background-color : #000 ;
+}
+.bul_pl_header_menu_show {
+	background-color : #fff ; 
+    opacity : .98 ;
+    visibility : visible ;
+    transform : scale(1.0) ;
+    width : 100% ; 
+}
+#bul_pl_searchForm_lookfor {
 	border : 1px solid #b7b09c ;
 	width : 35% ; 
 	opacity : 1 ;
 	width : 539px ; 
 	padding : 20px 15px ; 
-	height : 66px ; 
+	height : 20px ; 
 	font-size : 1rem ; 
 	font-family : "CircularStd",sans-serif ;
 	font-weight : 700 ;
 	background : #f9fafa ;
 }
-
-#searchForm_lookfor:hover {
+#bul_pl_searchForm_lookfor:hover {
 	border : 1px solid var(--brown_red) ;
 }
-
-#searchForm_lookfor:focus {
+#bul_pl_searchForm_lookfor:focus {
 }
+.bul_pl_header_show_small_screen, .bul_pl_header_show_tiny_screen {
+	display : none ; 
+}
+/* header scroll ease */
+
+/* menu and modal show/hide ease */
+.bul_pl_header_modal, .bul_pl_header_modal_show, .bul_pl_header_menu, .bul_pl_header_menu_show {
+    transition: opacity .35s,transform .35s,visibility .35s;
+	transition-property: opacity, transform, visibility;
+	transition-duration: 0.35s, 0.35s, 0.35s;
+	transition-timing-function: ease, ease, ease;
+	transition-delay: 0s, 0s, 0s;
+}
+
+/* icon hover ease */
+
+@media only screen and (max-width: 975px) {
+	.bul_pl_header_show_small_screen {
+		display : block ; 
+	}
+	#bul_pl_header_text a {
+		display : none ; 
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.bul_pl_header_show_tiny_screen {
+		display : block ; 
+	}
+	#bul_pl_header_modal_trigger_container, #bul_pl_header_links_icon_separator {
+		display : none !important ; 
+	}
+}
+
+/* accordion functionality */
+
+.bul_pl_accordion-group {
+	margin : 10px ; 
+}
+
+.bul_pl_accordion-content {
+	height : 15ex ; /* this is the height when the item is closed */
+	transition: ease-in 1s ;
+	overflow : hidden  ;
+	clear : both ; 
+}
+
+.bul_pl_accordion-content.bul_pl_accordion_active {
+	height : 50ex ; /* this is the height when the item is open */
+	transition: ease-in 1s ;
+}
+
+/* end accordion functionality */
