@@ -2,7 +2,14 @@
 :root {
   --brown_brown : #4e3629 ;
   --brown_red : #c00404 ;
+  --brown_red_old : #ed1c24 ;
   --brown_yellow : #ffc72c ;
+  --brown_gold : #ffc72c ; 
+  --brown_gray: #98a4ae;
+  --brown_emerald: #00b398;
+  --brown_navy: #003c71;
+  --brown_skyblue: #59CBEB;
+  --brown_taupe: #b7b09c;
 }
 
 /* fonts from Brown */
@@ -44,15 +51,26 @@ body {
 	font-weight : 400 ; 
 	margin : 0px ; 
 	opacity : 1 ;
+	line-height : 1.65 ;
+	font-size : 120% ; 
+	background-color : #fff ; 
+	color : #434343 ;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family : CircularStd ;
 	font-weight : 600 ;
+	line-height : 1.44 ;
+}
+
+#bul_pl_header_begin {
+	box-sizing : content-box ;
 }
 
 #bul_pl_header_container {
 	height : 110px ; 
 	background-color: var(--brown_brown) ;
+	position : relative ; 
+	z-index : 1000000 ; 
 }
 #bul_pl_universal_header {
 	display : grid ; 
