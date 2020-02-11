@@ -1,0 +1,9 @@
+#bul_pl_search_icon, .bul_pl_header_modal_trigger { 
+	display : none !important ; 
+}
+
+@media only screen and (max-width: 600px) {
+	#bul_pl_noscript_search {
+		display : none !important ;
+	}
+}
