@@ -1,405 +1,123 @@
-/* set variable values */
-:root {
-  --brown_brown : #4e3629 ;
-  --brown_red : #c00404 ;
-  --brown_red_old : #ed1c24 ;
-  --brown_yellow : #ffc72c ;
-  --brown_gold : #ffc72c ; 
-  --brown_gray: #98a4ae;
-  --brown_emerald: #00b398;
-  --brown_navy: #003c71;
-  --brown_skyblue: #59CBEB;
-  --brown_taupe: #b7b09c;
-}
+<!-- begin bul_pl_header -->
+<link rel="stylesheet" href="https://library.brown.edu/common/css/bul_patterns.css" />
+<div id="bul_pl_header_begin">
+<!-- 
+<meta name="viewport" content="width=640, initial-scale=.5" />
+ -->
+	<a href="#bul_pl_header_end" id="bul_pl_skip_header">Skip header</a> 
+	<div id="bul_pl_header_container">
+		<header id="bul_pl_universal_header">
+			<div id="bul_pl_brand">
+				<a href="https://brown.edu" role="button" aria-label="Brown home"><img id="bul_pl_brown_shield_header_svg" style="height : 75px ; " alt="Brown University" src="https://library.brown.edu/common/images/BUL_logo.svg" /></a> 
+			</div>
+			<div id="bul_pl_logo_text">
+				<a href="https://library.brown.edu/">University Library</a>
+			</div>
+			<nav id="bul_pl_header_links">
+				<div id="bul_pl_header_text">
+					<a href="https://library.brown.edu/libweb/proxy.php">Off-Campus Access</a>
+					<a href="https://library.brown.edu/libweb/my_library_account_login.php">My Library Account</a>
+				</div>
+				<noscript>
+					<div>
+						<a href="https://search.library.brown.edu" id="bul_pl_noscript_search">Search</a> 
+						<link rel="stylesheet" type="text/css" href="https://library.brown.edu/common/css/bul_patterns_noscript.css" />
+					</div>
+				</noscript>
+				<div id="bul_pl_header_modal_trigger_container">
+					<a class="bul_pl_header_modal_trigger" role="button" aria-label="Search the Library"> <span id="bul_pl_search_icon">&#9906;</span> </a> 
+				</div>
+				<div id="bul_pl_header_links_icon_separator">
+				</div>
+				<div id="bul_pl_header_menu_trigger_container">
+					<a class="bul_pl_header_menu_trigger" role="button" aria-label="menu links"><noscript><a href="https://library.brown.edu/"></noscript><span id="bul_pl_hamburger_icon">&#9776;</span> <noscript></a></noscript> </a>
+				</div>
+				<div class="bul_pl_header_modal">
+					<div class="bul_pl_header_modal-content">
+						<span class="bul_pl_header_modal_close-button" role="button">×</span> 
+						<div class="bul_pl_header_modal_text">
+							<form method="get" action="https://search.library.brown.edu/" name="searchForm" id="searchForm" class="search">
+								<input name="utf8" type="hidden" value="✓"> 
+								<div id="bul_pl_searchForm_lookfor_container">
+									<input id="bul_pl_searchForm_lookfor" type="text" name="q" placeholder="Search the Library" onfocus="if (value =='Search the Library'){value =''}" aria-label="Search the Library"> <button id="bul_pl_search_button"><span>Search &rarr;</span> </button> 
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="bul_pl_header_menu">
+					<div class="bul_pl_header_menu-content">
+						<span class="bul_pl_header_menu_close-button" role="button">×</span> <img id="bul_pl_brown_shield_menu_svg" style="height : 44px ; " alt="Brown University" src="https://library.brown.edu/common/images/BUL_logo.svg" /> 
+						<div id="bul_pl_header_menu_text">
+							<ul>
+								<li class="bul_pl_header_show_tiny_screen"><a href="https://search.library.brown.edu/libweb/proxy.php">Search</a></li>
+								<li class="bul_pl_header_show_small_screen"><a href="https://library.brown.edu/libweb/proxy.php">Off-Campus Access</a></li>
+								<li class="bul_pl_header_show_small_screen"><a href="https://library.brown.edu/libweb/my_library_account_login.php">My Library Account</a></li>
+								<li><a href="https://library.brown.edu/borrowing/">Borrow, Request, & Renew</a></li>
+								<li><a href="https://library.brown.edu/info/ajdb">Articles, Journals, & Databases</a></li>
+								<li><a href="https://library.brown.edu/about/specialists.php">Research Help</a></li>
+								<li><a href="https://library.brown.edu/libweb/hours.php">Hours & Locations</a></li>
+								<li><a href="https://brownlibrary.lwcal.com/#view/all">Events</a></li>
+								<li><a href="https://library.brown.edu/libweb/askalib.php">Ask a Question Now</a></li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
 
-/* fonts from Brown */
+			<script>
 
-   @font-face {
-     font-family: CircularStd;
-     src: url("https://library.brown.edu/common/fonts/CircularStd-Book.otf");
-     font-weight: 400 ;
-}
-   @font-face {
-     font-family: CircularStd;
-     src: url("https://library.brown.edu/common/fonts/CircularStd-Medium.otf");
-     font-weight: 600 ;
-}
-   @font-face {
-     font-family: CircularStd;
-     src: url("https://library.brown.edu/common/fonts/CircularStd-Bold.otf");
-     font-weight: 800 ;
-}
-   @font-face {
-     font-family: MinionPro;
-     src: url("https://library.brown.edu/common/fonts/MinionPro-Regular.otf");
-     font-weight: 400 ;
-}
-   @font-face {
-     font-family: MinionPro;
-     src: url("https://library.brown.edu/common/fonts/MinionPro-It.otf");
-     font-style: italic ;
-}
-   @font-face {
-     font-family: MinionPro;
-     src: url("https://library.brown.edu/common/fonts/MinionPro-Bold.otf");
-     font-weight: 800 ;
-}
+				// When the user scrolls down 42px from the top of the document, resize the header's font size
 
-/* force body margin to 0 -- this may cause issues for your site! */
-body {
-	font-family : MinionPro ;
-	font-weight : 400 ; 
-	margin : 0px ; 
-	opacity : 1 ;
-	line-height : 1.65 ;
-	font-size : 120% ; 
-	background-color : #fff ; 
-	color : #434343 ;
-}
-h1, h2, h3, h4, h5, h6 {
-	font-family : CircularStd ;
-	font-weight : 600 ;
-	line-height : 1.44 ;
-}
+				window.onscroll = function() {bul_pl_header_scrollFunction()};
 
-#bul_pl_header_begin, #bul_pl_header_container, #bul_pl_universal_header {
-	box-sizing : content-box ;
-}
+				function bul_pl_header_scrollFunction() {
+				  if (document.body.scrollTop > 42 || document.documentElement.scrollTop > 42) {
+					document.getElementById("bul_pl_universal_header").style.height = "48px";
+					document.getElementById("bul_pl_universal_header").style.padding = "0px 0px 12px 25px";
+					document.getElementById("bul_pl_brown_shield_header_svg").style.height = "45px";
+					document.getElementById("bul_pl_header_links").style.margin = "2ex 40px 0 0";
+					document.getElementById("bul_pl_logo_text").style.margin = "21px 0px 0px 0px";
+					document.getElementById("bul_pl_logo_text").style.font = "1rem CircularStd";
+				  } else {
+					document.getElementById("bul_pl_universal_header").style.height = "85px";
+					document.getElementById("bul_pl_universal_header").style.padding = "12px 0px 12px 25px";
+					document.getElementById("bul_pl_brown_shield_header_svg").style.height = "75px";
+					document.getElementById("bul_pl_header_links").style.margin = "4.5ex 40px 0 0";
+					document.getElementById("bul_pl_logo_text").style.margin = "35px 0px 0px 43px";
+					document.getElementById("bul_pl_logo_text").style.font = "1.2rem CircularStd";
+				  }
+				}
 
-#bul_pl_header_container {
-	height : 110px ; 
-	background-color: var(--brown_brown) ;
-	position : relative ; 
-	z-index : 1000000 ; 
-}
-#bul_pl_universal_header {
-	display : grid ; 
-  	width : 100% ; 
-  	background-color: var(--brown_brown) ;
-  	transition : all 1s ease 0s ;
-  	grid-template-columns: 180px 200px auto ;
-  	position : fixed ; 
-  	height : 85px ;  
-  	padding : 12px 0px 12px 25px ; 
-}
-#bul_pl_header_links {
-	transition : all 1s ease 0s ;
-	text-align : right ; 
-	border : 0px solid transparent ;
-	margin : 4.5ex 40px 0 0 ; 	
-}
-#bul_pl_header_links a {
-	font-family : CircularStd ;
-	font-weight : 400 ;  
-	font-size : .75rem ; 
-	display : inline-block ; 
-	color : #fff ; 
-	font-variant : small-caps ;
-	text-transform : uppercase ; 
-	letter-spacing : .1em ; 
-	line-height : 1.2 ; 
-	text-decoration : none ; 
-}
-#bul_pl_header_text a {
-	margin-left : 20px ; 
-	display : inline-block ; 
-}
-#bul_pl_brand {
-	transition : all 1s ease 0s ;
-	color : #fff ;
-}
-#bul_pl_brown_shield_header_svg {
-	transition : all 1s ease 0s ;
-	padding-right : 43px ; 
-	margin-top : 8px ; 
-	border-right : 1px solid grey ; 
-	height : 75px ; 
-}
-#bul_pl_brown_shield_menu_svg {
-	margin-top : 8px ; 
-	margin-left : 15px ; 
-	height : 44px ; 
-	float : left ; 
-}
-#bul_pl_logo_text {
-	transition : all 1s ease 0s ;
-	font-weight : 600 ; 
-	color : #fff ;
-	margin: 35px 0px 0px 43px ; 
-	letter-spacing : 0.1 ;
-	font : 1.2rem "CircularStd"; 
-}
-#bul_pl_logo_text a {
-	text-decoration : none ; 
-	color : #fff ; 
-}
-#bul_pl_words_university_library {
-	display : inline-block ; 
-	letter-spacing : 1.1 ;
-	margin-top : 0px ; 
-	font-size : 10pt ; 
-	-webkit-font-smoothing : antialiased ;
-}
-#bul_pl_search {
-	width : 50% ; 
-}
-#bul_pl_search_icon {
-	transition : all .25s ease 0s ;
-	cursor : pointer ;
-	margin-left : 2px ; 
-	margin-top : -1ex ;  /* this makes up for the extra headroom created by the rotation */
-	font-size : 1.7em ; 
-	font-weight : bold ; 
-	padding : 12px 12px 13px 13px ; 
-	background-color : transparent ; 
-	color : #fff ; 
-	-webkit-transform : rotate(-45deg) ; 
-	-moz-transform : rotate(-45deg) ;
-	-o-transform : rotate(-45deg) ;
-	transform : rotate(-45deg) ;
-	display : inline-block ; 
-	clip-path : circle(40% at 50% 50%) ;
-	-webkit-clip-path : circle(40% at 50% 50%) ;
-}
-#bul_pl_hamburger_icon {
-	transition : all .25s ease 0s ;
-	cursor : pointer ;
-	margin-left : 15px ; 
-	font-size : 1.4em ; 
-	font-weight : bold ; 
-	padding : 14px 14px 15px 15px ; 
-	background-color : var(--brown_red) ; 
-	color : #fff ; 
-	clip-path : circle(40% at 50% 50%) ;
-	-webkit-clip-path : circle(40% at 50% 50%) ;
-}
-#bul_pl_header_links_icon_separator {
-	margin-left : 10px ; 
-	border-right : 1px solid hsla(0,0%,100%,.3) ; 
-}
-#bul_pl_search_icon:hover, #bul_pl_hamburger_icon:hover {
-	transition : all .25s ease 0s ;
-	background-color : #fff ; 
-	color : var(--brown_red) ;
-}
-#bul_pl_search_button {
-	font-family : "CircularStd",sans-serif ;
-	font-weight : 400 ;
-	font-size : .8125rem ;
-	letter-spacing : .09rem ;  
-	text-transform : uppercase ; 	
-	height : 64px ; 
-	width : 141px ;
-	color : #fff ; 
-	background-color : var(--brown_red) ;
-	border : 0px ; 
-	padding : 0px ; 
-}
-#bul_pl_search_button:hover, #bul_pl_search_button:focus {
-	background-color : #000 ; 
-}
-label[for="bul_pl_search_icon"], #bul_pl_header_end, #bul_pl_skip_header {
-	position : absolute ;
-	height : 1px ; 
-	width : 1px ; 
-	overflow : hidden ;
-	clip : rect(1px 1px 1px 1px) ; /* IE6, IE7 */
-	clip : rect(1px, 1px, 1px, 1px) ;
-}
-a#bul_pl_noscript_search {
-	text-decoration : none ;
-	display : inline-block ;
-	margin-left : 20px ; 
-}
-#bul_pl_universal_header nav div {
-	display : inline ; /* this is required because Firefox adds a div when noscript is used */
-}
-.bul_pl_header_modal {
-	display : none ; 
-	visbility : hidden ; 
-    position : fixed ;
-    left : 0 ;
-    top : 0 ;
-    opacity : 0 ;
-    visibility: hidden;
-    width : 100% ; 
-    box-shadow : 1px 0px 1px 1px #eee ; 
-    background-color : #fff ; 
-}
-.bul_pl_header_modal-content {
-    opacity : 1 ; 
-    width : 100% ;
-    background-color : transparent ; 
-}
-.bul_pl_header_modal_text {
-	text-align : center ; 
-	padding-bottom : 10px ; 
-}
-.bul_pl_header_modal_close-button {
-    width : 2rem ;
-    font-size : 2rem ; 
-    padding : 0px 2px 0px 2px ; 
-    margin : 20px 20px 0px 0px ; 
-    text-align : center ;
-    cursor : pointer;
-    background-color : var(--brown_red);
-    color : #fff ; 
-    display : inline-block ; 
-}
-.bul_pl_header_modal_close-button:hover {
-    background-color : #000 ;
-}
-.bul_pl_header_modal_show {
-	background-color : #fff ; 
-    opacity : .98 ;
-    visibility : visible ;
-    transform : scale(1.0) ;
-    width : 100% ; 
-}
-.bul_pl_header_menu {
-	display : none ; 
-	visbility : hidden ; 
-    position : fixed ;
-    opacity : 0 ;
-	max-width: 405px;
-	min-width: 300px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width : 200px ; 
-    visibility: hidden;
-	width : 100% ; 
-    box-shadow : 1px 0px 1px 1px #eee ; 
-    background-color : #fff ; 
-}
-.bul_pl_header_menu-content {
-    opacity : 1 ; 
-    width : 100% ;
-    background-color : transparent ; 
-}
-#bul_pl_header_menu_text {
-	text-align : center ; 
-	padding-bottom : 10px ; 
-	clear : all ; 
-}
-#bul_pl_header_menu_text ul {
-	margin : 0px ;
-	padding : 5px 0px 0px 15px ;
-}
-#bul_pl_header_menu_text li {
-	border-bottom : 1px solid #eaeaea ; 
-}
-#bul_pl_header_menu_text ul li a {
-    font-family : "MinionPro" ;
-    font-weight : 800 ;
-    color : #000 ;
-    font-size : 1.5rem ;
-    transition : color .25s ;
-    padding : 23px 0 10px ;
-    vertical-align : top ;
-    letter-spacing : 0 ;
-    text-transform : capitalize ;
-    font-variant : normal ; 
-}
-#bul_pl_header_menu_text ul li a:hover {
-	color : var(--brown_red) ;
-}
-#bul_pl_header_menu_text ul {
-	list-style-type : none ;
-	margin-top : 59px ; 
-	text-align : left ; 
-}
-.bul_pl_header_menu_close-button {
-    width : 2rem ;
-    font-size : 2rem ; 
-    padding : 0px 4px 0px 4px ; 
-    margin : 10px 0px 0px 0px ; 
-    text-align : center ;
-    cursor : pointer;
-    background-color : var(--brown_red);
-    color : #fff ; 
-    display : block ; 
-    float : right ; 
-    font-weight : normal ;
-}
-.bul_pl_header_menu_close-button:hover {
-    background-color : #000 ;
-}
-.bul_pl_header_menu_show {
-	background-color : #fff ; 
-    opacity : .98 ;
-    visibility : visible ;
-    transform : scale(1.0) ;
-    width : 100% ; 
-}
-#bul_pl_searchForm_lookfor {
-	border : 1px solid #b7b09c ;
-	width : 35% ; 
-	opacity : 1 ;
-	width : 539px ; 
-	padding : 20px 15px ; 
-	height : 20px ; 
-	font-size : 1rem ; 
-	font-family : "CircularStd",sans-serif ;
-	font-weight : 700 ;
-	background : #f9fafa ;
-}
-#bul_pl_searchForm_lookfor:hover {
-	border : 1px solid var(--brown_red) ;
-}
-#bul_pl_searchForm_lookfor:focus {
-}
-.bul_pl_header_show_small_screen, .bul_pl_header_show_tiny_screen {
-	display : none ; 
-}
-/* header scroll ease */
+				// show/hide the modal/search and side/menu panes
 
-/* menu and modal show/hide ease */
-.bul_pl_header_modal, .bul_pl_header_modal_show, .bul_pl_header_menu, .bul_pl_header_menu_show {
-    transition: opacity .35s,transform .35s,visibility .35s;
-	transition-property: opacity, transform, visibility;
-	transition-duration: 0.35s, 0.35s, 0.35s;
-	transition-timing-function: ease, ease, ease;
-	transition-delay: 0s, 0s, 0s;
-}
+				var bul_pl_header_modal = document.querySelector(".bul_pl_header_modal");
+				var bul_pl_header_modal_trigger = document.querySelector(".bul_pl_header_modal_trigger");
+				var bul_pl_header_modal_closeButton = document.querySelector(".bul_pl_header_modal_close-button");
 
-/* icon hover ease */
+				var bul_pl_header_menu = document.querySelector(".bul_pl_header_menu");
+				var bul_pl_header_menu_trigger = document.querySelector(".bul_pl_header_menu_trigger");
+				var bul_pl_header_menu_closeButton = document.querySelector(".bul_pl_header_menu_close-button");
 
-@media only screen and (max-width: 975px) {
-	.bul_pl_header_show_small_screen {
-		display : block ; 
-	}
-	#bul_pl_header_text a {
-		display : none ; 
-	}
-}
+				function bul_pl_header_toggleModal() {
+					bul_pl_header_modal.classList.toggle("bul_pl_header_modal_show");
+					document.getElementById("bul_pl_searchForm_lookfor").focus();
+				}
 
-@media only screen and (max-width: 600px) {
-	.bul_pl_header_show_tiny_screen {
-		display : block ; 
-	}
-	#bul_pl_header_modal_trigger_container, #bul_pl_header_links_icon_separator {
-		display : none !important ; 
-	}
-}
+				function bul_pl_header_toggleMenu() {
+					bul_pl_header_menu.classList.toggle("bul_pl_header_menu_show");
+				}
 
-/* accordion functionality */
-
-.bul_pl_accordion-group {
-	margin : 10px ; 
-}
-
-.bul_pl_accordion-content {
-	height : 15ex ; /* this is the height when the item is closed */
-	transition: ease-in 1s ;
-	overflow : hidden  ;
-	clear : both ; 
-}
-
-.bul_pl_accordion-content.bul_pl_accordion_active {
-	height : 50ex ; /* this is the height when the item is open */
-	transition: ease-in 1s ;
-}
-
-/* end accordion functionality */
+				bul_pl_header_modal_trigger.addEventListener("click", bul_pl_header_toggleModal);
+				bul_pl_header_modal_closeButton.addEventListener("click", bul_pl_header_toggleModal);
+				
+				bul_pl_header_menu_trigger.addEventListener("click", bul_pl_header_toggleMenu);
+				bul_pl_header_menu_closeButton.addEventListener("click", bul_pl_header_toggleMenu);
+			</script>
+		</header>
+		<div id="bul_pl_header_end">
+		</div>
+	</div>
+</div>
+<!-- end bul_pl_header -->
