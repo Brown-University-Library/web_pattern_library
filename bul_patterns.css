@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 	line-height : 1.44 ;
 }
 
-#bul_pl_header_begin {
+#bul_pl_header_begin, #bul_pl_header_container, #bul_pl_universal_header {
 	box-sizing : content-box ;
 }
 
@@ -400,6 +400,13 @@ a#bul_pl_noscript_search {
 .bul_pl_accordion-content.bul_pl_accordion_active {
 	height : 50ex ; /* this is the height when the item is open */
 	transition: ease-in 1s ;
+}
+
+.bul_pl_accordion-toggle_horizonal_arrow {
+	text-decoration : none ;
+	transform : rotate(-90deg) ;
+	width : 2em ; 
+	margin-left : 98% ;
 }
 
 /* end accordion functionality */
