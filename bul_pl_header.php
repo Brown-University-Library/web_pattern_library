@@ -42,8 +42,7 @@ if(isset($bul_site_name)){
 		elseif($key == 'site_url'){
 			$site_url = $value ; 
 		}
-
-	    elseif($key == 'links') {
+		elseif($key == 'links') {
 	    	$subnav_links = "<nav id='" . $site_title_nospaces . "_menu'><ul id='bul_pl_subheader_links'>" ;
 	    	foreach($value as $link) {			
 				if (array_key_exists('links', $link)) {
@@ -53,9 +52,9 @@ if(isset($bul_site_name)){
 					foreach($link[links] as $sublink){
 					    $subnav_links .= "<li><a href='$sublink[url]'>$sublink[label]</a></li>" ;
 					}
-					$subnav_links .= "</li></ul></div>" ;
+					$subnav_links .= "</ul></div>" ;
 				}else{
-					$subnav_links .= "<li><a href='$link[url]'>$link[label]</a>" ;
+					$subnav_links .= "<li><a href='$link[url]'>$link[label]</a></li>" ;
 				}
 	    	}
 	    	$subnav_links .= "</ul></nav>" ;
