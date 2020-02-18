@@ -16,7 +16,7 @@ if(isset($bul_site_name)){
 			break ;
 	
 		case "ocra":
-			//rules
+			$config_file_location = "https://library.brown.edu/common/includes/configs/ocra.cfg" ;
 			break ;
 	
 		case "josiah":
