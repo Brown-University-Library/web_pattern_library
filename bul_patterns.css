@@ -364,6 +364,21 @@ a#bul_pl_noscript_search {
 
 /* subheader styles */
 
+#bul_pl_subheader {
+	padding: 0px 0px 0px 25px ; 
+	font-family : CircularStd ; 
+	font-size : 13px ;		
+	box-sizing : border-box ;
+	width : 100% ; 
+	line-height : 1 ; 
+	display : grid ; 
+	grid-template-columns: auto auto ;
+	grid-template-rows: auto;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 60px;
+}
+
 #bul_pl_subheader a:focus {
 	outline : none ;
 	border-bottom : 1px solid ; 
@@ -377,6 +392,10 @@ a#bul_pl_noscript_search {
 	display : inline-block ; 
 	padding : 13px 0px ;
 	font-weight : bold ; 
+}
+
+#bul_pl_subheader_site_title a {
+	text-decoration : none ;
 }
 
 .bul_pl_subheader_nav_menu {
