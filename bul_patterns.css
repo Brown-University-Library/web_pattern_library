@@ -283,10 +283,6 @@ a#bul_pl_noscript_search {
 	padding-bottom : 10px ; 
 	clear : all ; 
 }
-#bul_pl_header_menu_text ul {
-	margin : 0px ;
-	padding : 5px 0px 0px 15px ;
-}
 #bul_pl_header_menu_text li {
 	border-bottom : 1px solid #eaeaea ; 
 }
@@ -309,6 +305,7 @@ a#bul_pl_noscript_search {
 	list-style-type : none ;
 	margin-top : 59px ; 
 	text-align : left ; 
+	padding : 5px 0px 0px 15px ;
 }
 .bul_pl_header_menu_close-button {
     width : 2rem ;
@@ -349,11 +346,12 @@ a#bul_pl_noscript_search {
 	border : 1px solid var(--brown_red) ;
 }
 #bul_pl_searchForm_lookfor:focus {
+
 }
 .bul_pl_header_show_small_screen, .bul_pl_header_show_tiny_screen {
 	display : none ; 
 }
-/* header scroll ease */
+/* header scroll ease? */
 
 /* menu and modal show/hide ease */
 .bul_pl_header_modal, .bul_pl_header_modal_show, .bul_pl_header_menu, .bul_pl_header_menu_show {
@@ -364,25 +362,100 @@ a#bul_pl_noscript_search {
 	transition-delay: 0s, 0s, 0s;
 }
 
-/* icon hover ease */
+/* subheader styles */
 
-@media only screen and (max-width: 975px) {
-	.bul_pl_header_show_small_screen {
-		display : block ; 
-	}
-	#bul_pl_header_text a {
-		display : none ; 
-	}
+#bul_pl_subheader a:focus {
+	outline : none ;
+	border-bottom : 1px solid ; 
 }
 
-@media only screen and (max-width: 600px) {
-	.bul_pl_header_show_tiny_screen {
-		display : block ; 
-	}
-	#bul_pl_header_modal_trigger_container, #bul_pl_header_links_icon_separator {
-		display : none !important ; 
-	}
+#bul_pl_subheader a:hover {
+	color : var(--brown_red) !important ; // this needs an !important because the link color value is inline on the a element in bul_pl_header.php (because it is a variable), and this overrides it 
 }
+
+#bul_pl_subheader_site_title {
+	display : inline-block ; 
+	padding : 13px 0px ;
+	font-weight : bold ; 
+}
+
+.bul_pl_subheader_nav_menu {
+	box-sizing : border-box ;
+	width : 100% ; 
+}
+
+#bul_pl_subheader_trigram {
+	display : none ; 
+}
+
+#bul_pl_subheader_site_links {
+	display : inline-block ;
+	text-align : right ; 
+	padding-right : 25px ;
+	width : 100% ;
+	box-sizing : border-box ; 
+}
+
+#bul_pl_subheader_links {
+	box-sizing : border-box ;
+	display : inline-block ; 
+}
+
+.bul_pl_subheader_links_trigger {
+	list-style-type : none ;
+}
+
+#bul_pl_subheader_links>li {
+	padding : 0px 15px ; 
+	box-sizing : border-box ;
+	display : inline-block ;
+}
+
+#bul_pl_subheader_links>li a {
+	color : var(--brown_brown) ;
+	text-decoration : none ; 
+}
+
+.bul_pl_subheader_sublinks_container {
+	opacity : 0 ;
+	transition : all .3s ease 0s ;
+	visibility : hidden ;
+	position : absolute ;
+	box-sizing : border-box ;
+}
+
+.bul_pl_subheader_sublinks {
+	min-width : 160px ;
+	box-shadow : 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+	padding : 0px 10px 0px 10px ;
+	z-index : 0 ;
+	box-sizing : border-box ;
+	margin-left : -10px ; 
+	margin-top : 10px ; 
+	text-align : left ; 
+	background-color : #fff ; 
+	list-style-type : none ;
+}
+
+.bul_pl_subheader_sublinks li {
+	border-bottom : 1px solid #F0F2F3 ;
+	padding : 20px 0px ;
+}
+
+.bul_pl_subheader_sublinks li a {
+	text-decoration : none ; 
+	color : #000 ;
+}
+
+.bul_pl_subheader_links_trigger:hover .bul_pl_subheader_sublinks_container, 
+.bul_pl_subheader_links_trigger:focus-within .bul_pl_subheader_sublinks_container {
+	transition : all .3s ease 0s ;
+	visibility : visible ; 
+	box-sizing : border-box ;
+	opacity : 1 ;
+}
+
+/* end subheader styles */
 
 /* accordion functionality */
 
@@ -410,3 +483,37 @@ a#bul_pl_noscript_search {
 }
 
 /* end accordion functionality */
+
+/* media queries */
+
+@media only screen and (max-width: 975px) {
+	.bul_pl_header_show_small_screen {
+		display : block ; 
+	}
+	#bul_pl_header_text a {
+		display : none ; 
+	}
+	
+	#bul_pl_subheader_trigram {
+		display : inline-block ;
+	}
+	
+	#bul_pl_subheader_links {
+		display : none ; 
+	}
+}
+
+@media only screen and (min-width: 975px) {
+
+}
+
+@media only screen and (max-width: 600px) {
+	.bul_pl_header_show_tiny_screen {
+		display : block ; 
+	}
+	#bul_pl_header_modal_trigger_container, #bul_pl_header_links_icon_separator {
+		display : none !important ; 
+	}
+}
+
+/* end media queries */
