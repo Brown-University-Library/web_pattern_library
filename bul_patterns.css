@@ -580,7 +580,7 @@ input.bul_pl_subheader_trigram_toggle {
 	}
 
 }
-
+ 
 @media only screen and (max-width: 600px) {
 	.bul_pl_header_show_tiny_screen {
 		display : block ; 
