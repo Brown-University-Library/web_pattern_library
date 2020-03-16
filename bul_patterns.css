@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
   	width : 100% ; 
   	background-color: var(--brown_brown) ;
   	transition : all 1s ease 0s ;
-  	grid-template-columns: 180px 200px auto ;
+  	grid-template-columns: 180px 240px auto ;
   	position : fixed ; 
   	height : 85px ;  
   	padding : 12px 0px 12px 25px ; 
@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 	transition : all 1s ease 0s ;
 	text-align : right ; 
 	border : 0px solid transparent ;
-	margin : 4.5ex 40px 0 0 ; 	
+	margin : 4ex 40px 0 0 ; 	
 }
 #bul_pl_header_links a {
 	font-family : CircularStd ;
@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 	transition : all 1s ease 0s ;
 	font-weight : 600 ; 
 	color : #fff ;
-	margin: 35px 0px 0px 43px ; 
+	margin: 33px 0px 0px 43px ; 
 	letter-spacing : 0.1 ;
 	font : 1.2rem "CircularStd"; 
 }
@@ -188,17 +188,17 @@ h1, h2, h3, h4, h5, h6 {
 	font-size : .8125rem ;
 	letter-spacing : .09rem ;  
 	text-transform : uppercase ; 	
-	height : 64px ; 
+	height : 62px ; 
 	width : 141px ;
 	color : #fff ; 
 	background-color : var(--brown_red) ;
 	border : 0px ; 
-	padding : 0px ; 
+	padding : 2px 0px 0px 0px ; 
 }
 #bul_pl_search_button:hover, #bul_pl_search_button:focus {
 	background-color : #000 ; 
 }
-label[for="bul_pl_search_icon"], #bul_pl_header_end, #bul_pl_skip_header {
+label[for="bul_pl_search_icon"], #bul_pl_header_end, #bul_pl_skip_header, #bul_pl_skip_subheader {
 	position : absolute ;
 	height : 1px ; 
 	width : 1px ; 
@@ -232,9 +232,16 @@ a#bul_pl_noscript_search {
     background-color : transparent ; 
 }
 .bul_pl_header_modal_text {
-	text-align : center ; 
+	text-align : left ; 
 	padding-bottom : 10px ; 
 }
+
+.bul_pl_header_modal_text form {
+	margin-top : 60px ;
+	margin-bottom : 30px ;
+	margin-left : 10% ;
+}
+
 .bul_pl_header_modal_close-button {
     width : 2rem ;
     font-size : 2rem ; 
@@ -245,6 +252,7 @@ a#bul_pl_noscript_search {
     background-color : var(--brown_red);
     color : #fff ; 
     display : inline-block ; 
+    float : right ; 
 }
 .bul_pl_header_modal_close-button:hover {
     background-color : #000 ;
@@ -336,7 +344,9 @@ a#bul_pl_noscript_search {
 	opacity : 1 ;
 	width : 539px ; 
 	padding : 20px 15px ; 
+/* 
 	height : 20px ; 
+ */
 	font-size : 1rem ; 
 	font-family : "CircularStd",sans-serif ;
 	font-weight : 700 ;
@@ -365,21 +375,22 @@ a#bul_pl_noscript_search {
 /* subheader styles */
 
 #bul_pl_subheader {
-	padding: 0px 0px 0px 25px ; 
+	padding : 0px 0px 0px 25px ; 
 	font-family : CircularStd ; 
-	font-size : 13px ;		
+	font-size : 16px ;		
 	box-sizing : border-box ;
 	width : 100% ; 
 	line-height : 1 ; 
 	display : grid ; 
-	grid-template-columns: auto auto ;
-	grid-template-rows: auto;
-	position: -webkit-sticky; /* Safari */
-	position: sticky;
-	top: 60px;
+	grid-template-columns : auto auto ;
+	grid-template-rows : auto;
+	position : -webkit-sticky; /* Safari */
+	position : sticky;
+	top : 60px;
+	z-index : 1 ;
 }
 
-#bul_pl_subheader a:focus {
+#bul_pl_subheader a:focus, .bul_pl_subheader_trigram_toggle:focus {
 	outline : none ;
 	border-bottom : 1px solid ; 
 }
@@ -390,7 +401,7 @@ a#bul_pl_noscript_search {
 
 #bul_pl_subheader_site_title {
 	display : inline-block ; 
-	padding : 13px 0px ;
+	padding : 10px 0px ;
 	font-weight : bold ; 
 }
 
@@ -420,12 +431,17 @@ a#bul_pl_noscript_search {
 	display : inline-block ; 
 }
 
+ul#bul_pl_subheader_links {
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+}
+
 .bul_pl_subheader_links_trigger {
 	list-style-type : none ;
 }
 
 #bul_pl_subheader_links>li {
-	padding : 0px 15px ; 
+	padding : 0px 10px ; 
 	box-sizing : border-box ;
 	display : inline-block ;
 }
@@ -476,6 +492,35 @@ a#bul_pl_noscript_search {
 
 /* end subheader styles */
 
+
+/* trigram submenu toggle styles */
+
+.bul_pl_subheader_trigram_menu_contents {
+    display : none ;
+    text-align : left ; 
+    list-style-type : none ; 
+}
+
+.bul_pl_subheader_trigram_menu_contents li {
+	margin-bottom : 12px ; 
+}
+
+input.bul_pl_subheader_trigram_toggle {
+    display : none ;
+}
+
+.bul_pl_subheader_trigram_toggle:checked + .bul_pl_subheader_trigram_menu_contents {
+    display : block ;
+    clear : both ;
+}
+
+.bul_pl_subheader_trigram label {
+    cursor : pointer ;
+}
+
+/* end trigram submenu toggle styles */
+
+
 /* accordion functionality */
 
 .bul_pl_accordion-group {
@@ -505,7 +550,7 @@ a#bul_pl_noscript_search {
 
 /* media queries */
 
-@media only screen and (max-width: 975px) {
+@media only screen and (max-width: 1065px) {
 	.bul_pl_header_show_small_screen {
 		display : block ; 
 	}
@@ -513,16 +558,26 @@ a#bul_pl_noscript_search {
 		display : none ; 
 	}
 	
-	#bul_pl_subheader_trigram {
-		display : inline-block ;
-	}
-	
 	#bul_pl_subheader_links {
 		display : none ; 
 	}
+	
+	#bul_pl_subheader_trigram {
+		display : inline-block ;
+		margin-top : 9px ; 
+	}
 }
 
-@media only screen and (min-width: 975px) {
+@media only screen and (min-width: 1220px) {
+	#bul_pl_header_text a {
+		font-size : 16px ; 
+		font-weight : 400 ; 
+		letter-spacing : 0.0625rem ; 
+	}
+	#bul_pl_logo_text {
+		font-weight : 500 ; 	
+		line-height : -1 ;
+	}
 
 }
 

@@ -6,6 +6,9 @@ include('bul_pl_header.html') ;
 $bul_site_name = $_REQUEST['z'] ; // there may or may not be a z value appended to the URL
 $config_file_location = "" ;
 $config_rules_source = "" ;
+$subnav_links = "" ;
+$link_count = 0 ;
+$trigram_display = "" ;
 /* ------------ */
 
 if(isset($bul_site_name)){
@@ -30,6 +33,14 @@ if(isset($bul_site_name)){
 			
 		case "libguides":
 			$config_file_location = "https://library.brown.edu/common/includes/configs/libguides.cfg" ;		
+			break ;
+			
+		case "accesscontrol":
+				$config_file_location = "https://library.brown.edu/common/includes/configs/accesscontrol.cfg" ;		
+				break ;
+							
+		case "nolinks": // this is a test case
+			$config_file_location = "https://library.brown.edu/common/includes/configs/nolinks.cfg" ;		
 			break ;
 	}
 
@@ -69,8 +80,8 @@ if(isset($bul_site_name)){
 				break ;
 
 			case "links":
-				$subnav_links = "" ;
 
+			
 				// evaluate each item in the 'links' JSON object
 				foreach($value as $link) {	
 					
@@ -80,13 +91,22 @@ if(isset($bul_site_name)){
 						
 						$subnav_links .= "<li class='bul_pl_subheader_links_trigger' id='bul_pl_subheader_myaccount'><a href='$link[url]' style='text-decoration : none ; color : $link_color ;'>$link[label]&nbsp;&nbsp;&dtrif;</a>" ;
 						$subnav_links .= "<div class='bul_pl_subheader_sublinks_container'><ul class='bul_pl_subheader_sublinks'>" ;
+						
+						++$count ; 
+						
 						foreach($link[links] as $sublink){
 							$subnav_links .= "<li><a href='$sublink[url]'>$sublink[label]</a></li>" ;
+							
+							++$count ; 
+							
 						}
 						$subnav_links .= "</ul></div></li>" ;
 					}					
 					elseif($shib_site == "yes"  && $link[label] == "Login") {
 						$subnav_links .= "<li id='login' class='bul_pl_subheader_single_link'><a href='$link[url]' style='text-decoration : none ; color : $link_color ;'>$link[label]</a></li>" ;
+						
+						++$count ; 
+						
 					}
 					// end special case	
 					
@@ -100,30 +120,51 @@ if(isset($bul_site_name)){
 						$subnav_links .= "<div class='bul_pl_subheader_sublinks_container'><ul class='bul_pl_subheader_sublinks'>" ;
 						foreach($link[links] as $sublink){
 							$subnav_links .= "<li><a href='$sublink[url]'>$sublink[label]</a></li>" ;
+							
+							++$count ; 
+							
 							// $trigram_menu_links .= "<li class='bul_pl_subheader_trigram_links'><a href='$sublink[url]'>$sublink[label]</a></li>" ;
 						}
-						$subnav_links .= "</ul></div></li>" ;
+						$subnav_links .= "</ul></div></li>" ;	
 					}
+					
 					// if there's no submenu, and it's just a single link
 					else{
 						$subnav_links .= "<li class='bul_pl_subheader_single_link'><a href='$link[url]' style='text-decoration : none ; color : $link_color ;'>$link[label]</a></li>" ;
+						
+						++$count ; 
+						
 						// $trigram_menu_links .= "<li class='bul_pl_subheader_trigram_links'><a href='$link[url]'>$link[label]</a></li>" ;
 					}
 				}
-				break ;
+				
+				$trigram_display = "<div id='bul_pl_subheader_trigram'>
+						  <label for='bul_pl_subheader_trigram_checkbox' class='bul_pl_subheader_trigram_toggle'>
+							&#9776;
+						  </label>
+						  <input type='checkbox' id='bul_pl_subheader_trigram_checkbox' class='bul_pl_subheader_trigram_toggle'>
+						  <ul class='bul_pl_subheader_trigram_menu_contents'>$subnav_links</ul>
+				</div>" ;
+		
+				
+				break ;							
 			}		
 	  }
+	  
+	  	
 	  
 echo "
 <!-- begin bul_pl_subheader -->
 <div id='bul_pl_subheader' style='background-color : $background_color ; ' >
 	<div id='bul_pl_subheader_site_title'>
 		<a href='$site_url' style='color : $link_color ;'>$site_title</a>
+		<a href='subheader_end' id='bul_pl_skip_subheader'>Skip $count subheader links</a>
 	</div>
 	<nav id='bul_pl_subheader_" . $site_title_nospaces . "_menu' class='bul_pl_subheader_nav_menu'>
 		<div id='bul_pl_subheader_site_links'>
+			$trigram_display
 			<ul id='bul_pl_subheader_links'>
-				$subnav_links
+				$subnav_links 
 			</ul>	
 		</div>
 	</nav>
