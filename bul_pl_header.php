@@ -4,45 +4,21 @@ include('bul_pl_header.html') ;
 
 /* ----- some important variables ------- */
 $bul_site_name = $_REQUEST['z'] ; // there may or may not be a z value appended to the URL
+$configs_raw = "" ;
 $config_file_location = "" ;
 $config_rules_source = "" ;
 $subnav_links = "" ;
 $link_count = 0 ;
 $trigram_display = "" ;
 /* ------------ */
-
 if(isset($bul_site_name)){
 
-	// map the site this is being used on to its configuration file
-	switch($bul_site_name){
-		case "bdr":
-			$config_file_location = "https://library.brown.edu/common/includes/configs/bdr.cfg" ;
-			break ;
-	
-		case "ocra":
-			$config_file_location = "https://library.brown.edu/common/includes/configs/ocra.cfg" ;
-			break ;
+	// the f_g_c function below has an offset because the file is stored on disk with a "<?php" declaration at the beginning, so it won't be accessible by URL in a browser. The offset of 5 skips that PHP declaration when grabbing this file
+	$configs_raw = file_get_contents('/var/www/html/common/includes/configs/bul_site_names.php', FALSE, NULL, 5) ;
+	$configs_json_all = json_decode($configs_raw, true) ; 
+	$configs_json = $configs_json_all[cfg_map] ;
 
-		case "ocradata":
-			$config_file_location = "https://library.brown.edu/common/includes/configs/ocradata.cfg" ;
-			break ;
-	
-		case "josiah":
-			$config_file_location = "https://library.brown.edu/common/includes/configs/josiah.cfg" ;		
-			break ;
-			
-		case "libguides":
-			$config_file_location = "https://library.brown.edu/common/includes/configs/libguides.cfg" ;		
-			break ;
-			
-		case "accesscontrol":
-				$config_file_location = "https://library.brown.edu/common/includes/configs/accesscontrol.cfg" ;		
-				break ;
-							
-		case "nolinks": // this is a test case
-			$config_file_location = "https://library.brown.edu/common/includes/configs/nolinks.cfg" ;		
-			break ;
-	}
+	$config_file_location = $configs_json[$bul_site_name] ;
 
 	// get the config file as a string and turn it into a JSON object represented as an array
 	$config_rules_source = file_get_contents($config_file_location) ;
@@ -160,7 +136,7 @@ echo "
 		<a href='$site_url' style='color : $link_color ;'>$site_title</a>
 		<a href='subheader_end' id='bul_pl_skip_subheader'>Skip $count subheader links</a>
 	</div>
-	<nav id='bul_pl_subheader_" . $site_title_nospaces . "_menu' class='bul_pl_subheader_nav_menu'>
+	<nav id='bul_pl_subheader_" . $site_title_nospaces . "_menu' aria-label='" . $site_title . " menu' class='bul_pl_subheader_nav_menu'>
 		<div id='bul_pl_subheader_site_links'>
 			$trigram_display
 			<ul id='bul_pl_subheader_links'>
